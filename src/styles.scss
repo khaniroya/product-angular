@@ -1,1 +1,259 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "iransans";
+    src: url("./assets//fonts/IRANSans_Light.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'iransans';
+    direction: rtl;
+    margin: 0;
+}
+
+select {
+    font-family: 'iransans';
+}
+
+.container {
+    margin: 40px auto;
+    text-align: right;
+    width: 1200px;
+
+    h2 {
+        margin-bottom: 45px;
+    }
+
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        text-align: right;
+        width: 100%;
+
+        thead tr {
+            background-color: #2d97ff0f;
+            color: #11385f;
+            text-align: right;
+            height: 40px;
+        }
+
+        td,
+        th {
+            padding: 8px 15px;
+
+            span {
+                font-size: 11px;
+                color: gray;
+                padding: 0 3px;
+            }
+        }
+    }
+
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f9ff;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        // border-bottom: 2px solid #009879;
+    }
+
+    .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+    }
+}
+
+.btn {
+    padding: 5px 20px;
+    font-family: 'iransans';
+    border-radius: 5px;
+    box-shadow: unset !important;
+    border: unset;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #2d97ff;
+    color: #fff;
+}
+
+.btn-success {
+    background-color: #28a745 !important;
+    color: #fff;
+}
+
+.btn-warning {
+
+    background-color: #ffc1071f !important;
+    color: #c59400 !important;
+
+}
+
+.btn-delete {
+    background-color: #dc354517 !important;
+    color: #dc3545 !important;
+}
+
+.btn-secoundry {
+    background-color: rgb(79 79 79 / 9%) !important;
+    color: #292929 !important;
+}
+
+// Menu 
+ul.nav_new {
+    padding: 10px 0;
+    width: 1200px;
+    margin: 0 auto;
+
+    li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 15px;
+        padding: 3px 20px;
+        cursor: pointer;
+    }
+
+    li.active {
+        color: white;
+        background: #2d97ff;
+        border-radius: 5px;
+    }
+}
+
+//header 
+header {
+    background-color: #ffffff;
+    height: 50px;
+    box-shadow: 3px 2px 2px #0000002b;
+}
+
+//Modal
+.modal-wrapper {
+    position: fixed;
+    z-index: 99;
+    padding-top: 70px;
+    padding-bottom: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(.9px);
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .content-modal {
+        background-color: #fefefe;
+        width: 40%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 5px;
+
+        .close {
+            cursor: pointer;
+            float: left;
+            background-color: #9d9d9d;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 1.8;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 14px;
+        }
+    }
+}
+
+//form
+.action-form {
+    display: inline-flex;
+    align-items: center;
+    justify-content: end;
+    column-gap: 10px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+}
+
+.form-new {
+    padding: 10px 0;
+
+    form {
+        margin-bottom: 20px;
+    }
+}
+
+.form-control {
+    height: 33px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #b9b9b9;
+    box-shadow: unset;
+}
+
+.form-control-text {
+    height: 100px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #b9b9b9;
+    box-shadow: unset;
+}
+
+.group_form {
+    display: inline-block;
+    width: 47.8%;
+    padding: 6px;
+
+}
+
+.group_form_textArea {
+    display: inline-block;
+    width: 98%;
+    padding: 6px;
+
+}
+
+.confirm-popup {
+    position: fixed;
+    z-index: 99;
+    padding-top: 17%;
+    padding-bottom: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(.9px);
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .content {
+        background-color: #fefefe;
+        width: 20%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+
+        button {
+            margin: 0 5px;
+        }
+
+        span {
+            background-color: #dc354542;
+            padding: 2px 20px;
+            border-radius: 25px;
+            font-size: 24px;
+            color: #dc3545;
+        }
+    }
+}
