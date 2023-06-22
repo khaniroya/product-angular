@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "name": "لپ تاپ لنوو مدل 2019",
+        "number": 120,
+        "year": 2019,
+        "category": "لپ تاپ",
+        "color": "نقره ایی",
+        "weight": 1.11
+    },
+    {
+        "id": 2,
+        "name": "لپ تاپ لنوو مدل 2020",
+        "number": 50,
+        "year": 2020,
+        "category": "لپ تاپ",
+        "color": "نقره ایی",
+        "weight": 1.11
+    },
+    {
+        "id": 3,
+        "name": "لپ تاپ HP مدل 2019",
+        "number": 180,
+        "year": 2022,
+        "category": "لپ تاپ",
+        "color": "مشکی",
+        "weight": 1
+    },
+    {
+        "id": 4,
+        "name": "لپ تاپ Asus مدل 2019",
+        "number": 120,
+        "year": 2019,
+        "category": "لپ تاپ",
+        "color": "نقره ایی",
+        "weight": 1.22
+    },
+    {
+        "id": 5,
+        "name": "لپ تاپ Asus مدل 2019",
+        "number": 25,
+        "year": 2016,
+        "category": "لپ تاپ",
+        "color": "نقره ایی",
+        "weight": 2
+    },
+    {
+        "id": 6,
+        "name": "لپ تاپ 12.4 اینچی مایکروسافت",
+        "number": 120,
+        "year": 2020,
+        "category": "لپ تاپ",
+        "color": "نقره ایی",
+        "weight": 1.14
+    },
+    {
+        "id": 7,
+        "name": "لپ تاپ 15.6 اینچی ایسوس مدل TUF",
+        "number": 120,
+        "year": 2019,
+        "category": "لپ تاپ",
+        "color": "مشکی",
+        "weight": 1.63
+    }
+]

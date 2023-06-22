@@ -1,0 +1,43 @@
+<div class="content-modal">
+  <span (click)="close()" class="close">
+    x
+  </span>
+  <h4>
+    اضافه کردن محصول جدید
+  </h4>
+
+  <div class="form-new">
+    <form #addProduct>
+      <div class="group_form">
+        <label>نام کالا</label>
+        <input type="text" name="productName" class="form-control" />
+      </div>
+      <div class="group_form">
+        <label>دسته بندی</label>
+        <select name="productCategory" class="form-control">
+          <option *ngFor="let category of categories" [value]="category.key">{{category.value}}</option>
+        </select>
+      </div>
+      <div class="group_form">
+        <label>سال تولید</label>
+        <input type="text" name="productYear" class="form-control" />
+      </div>
+      <div class="group_form">
+        <label>رنگ کالا</label>
+        <input type="text" name="productColor" class="form-control" />
+      </div>
+      <div class="group_form">
+        <label>وزن کالا</label>
+        <input type="number" name="productWeight" class="form-control" />
+      </div>
+    </form>
+    <div class="action-form">
+      <button class="btn btn-secoundry" (click)="close()">
+        لغو
+      </button>
+      <button class="btn btn-success">
+        ثبت
+      </button>
+    </div>
+  </div>
+</div>
