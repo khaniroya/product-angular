@@ -1,0 +1,26 @@
+[
+    {
+        "value": "لپ تاپ",
+        "key": "laptop"
+    },
+    {
+        "value": "مانیتور",
+        "key": "monitor"
+    },
+    {
+        "value": "موبایل",
+        "key": "mobile"
+    },
+    {
+        "value": "شارژر",
+        "key": "sharj"
+    },
+    {
+        "value": "تبلت",
+        "key": "tablet"
+    },
+    {
+        "value": "ساعت هوشمند",
+        "key": "iwatch"
+    }
+]

@@ -7,35 +7,35 @@
   </h4>
 
   <div class="form-new">
-    <form #addProduct>
+    <form #addProduct="ngForm" (ngSubmit)="onSubmit()">
       <div class="group_form">
         <label>نام کالا</label>
-        <input type="text" name="productName" class="form-control" />
+        <input type="text" name="name" class="form-control" [(ngModel)]="editData.name" />
       </div>
       <div class="group_form">
         <label>دسته بندی</label>
-        <select name="productCategory" class="form-control">
-          <option *ngFor="let category of categories" [value]="category.key">{{category.value}}</option>
+        <select name="category" class="form-control" [(ngModel)]="editData.category">
+          <option *ngFor="let category of catgories" [value]="category.key">{{category.value}}</option>
         </select>
       </div>
       <div class="group_form">
         <label>سال تولید</label>
-        <input type="text" name="productYear" class="form-control" />
+        <input type="text" name="year" class="form-control" [(ngModel)]="editData.year" />
       </div>
       <div class="group_form">
         <label>رنگ کالا</label>
-        <input type="text" name="productColor" class="form-control" />
+        <input type="text" name="color" class="form-control" [(ngModel)]="editData.color" />
       </div>
       <div class="group_form">
         <label>وزن کالا</label>
-        <input type="number" name="productWeight" class="form-control" />
+        <input type="number" name="weight" class="form-control" [(ngModel)]="editData.weight" />
       </div>
     </form>
     <div class="action-form">
       <button class="btn btn-secoundry" (click)="close()">
         لغو
       </button>
-      <button class="btn btn-success">
+      <button class="btn btn-success" (click)="onSubmit()">
         ثبت
       </button>
     </div>

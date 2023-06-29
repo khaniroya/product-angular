@@ -17,6 +17,7 @@
           <th>سال تولید</th>
           <th>رنگ </th>
           <th> وزن</th>
+          <th> موجودی انبار</th>
           <th> ویرایش</th>
           <th> حذف</th>
         </tr>
@@ -25,11 +26,12 @@
         <tr *ngFor="let item of productList; let i=index">
           <td>{{item.id}}</td>
           <td>{{item.name}}</td>
-          <td>{{item.category}}</td>
+          <td>{{replaceCategory(item.category)}}</td>
           <td>{{item.year}}</td>
           <td>{{item.color}}</td>
           <td>{{item.weight}}<span>kg</span></td>
-          <td> <button class="btn btn-warning">
+          <td>{{item.number}}</td>
+          <td> <button class="btn btn-warning" (click)="showModalForEdit(item)">
               ویرایش
             </button></td>
           <td>
@@ -45,7 +47,8 @@
 
 
 <div class="modal-wrapper" *ngIf="activeModal">
-  <app-create-new-product (onClose)="closeModal()"></app-create-new-product>
+  <app-create-new-product (onClose)="closeModal()" [editId]="editId" (addItem)="addItemToProductList($event)"
+    [catgories]="catgories" [productList]="productList"></app-create-new-product>
 </div>
 
 <div class="confirm-popup" *ngIf="popupActive">

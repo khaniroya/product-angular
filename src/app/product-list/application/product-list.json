@@ -1,11 +1,11 @@
 [
     {
         "id": 1,
-        "name": "لپ تاپ لنوو مدل 2019",
-        "number": 120,
-        "year": 2019,
-        "category": "لپ تاپ",
-        "color": "نقره ایی",
+        "name": "ساعت هوشمند iwatch8",
+        "number": 5,
+        "year": 2023,
+        "category": "iwatch",
+        "color": "مشکی",
         "weight": 1.11
     },
     {
@@ -13,25 +13,25 @@
         "name": "لپ تاپ لنوو مدل 2020",
         "number": 50,
         "year": 2020,
-        "category": "لپ تاپ",
+        "category": "laptop",
         "color": "نقره ایی",
         "weight": 1.11
     },
     {
         "id": 3,
-        "name": "لپ تاپ HP مدل 2019",
-        "number": 180,
+        "name": "آیفون 13 پرومکس",
+        "number": 15,
         "year": 2022,
-        "category": "لپ تاپ",
+        "category": "mobile",
         "color": "مشکی",
         "weight": 1
     },
     {
         "id": 4,
-        "name": "لپ تاپ Asus مدل 2019",
-        "number": 120,
-        "year": 2019,
-        "category": "لپ تاپ",
+        "name": " تبلت سامسونگ",
+        "number": 45,
+        "year": 2023,
+        "category": "tablet",
         "color": "نقره ایی",
         "weight": 1.22
     },
@@ -40,25 +40,25 @@
         "name": "لپ تاپ Asus مدل 2019",
         "number": 25,
         "year": 2016,
-        "category": "لپ تاپ",
+        "category": "laptop",
         "color": "نقره ایی",
         "weight": 2
     },
     {
         "id": 6,
-        "name": "لپ تاپ 12.4 اینچی مایکروسافت",
+        "name": "شارژر گوشی آیفون 13",
         "number": 120,
         "year": 2020,
-        "category": "لپ تاپ",
-        "color": "نقره ایی",
-        "weight": 1.14
+        "category": "sharj",
+        "color": "سفید",
+        "weight": 0.014
     },
     {
         "id": 7,
         "name": "لپ تاپ 15.6 اینچی ایسوس مدل TUF",
-        "number": 120,
+        "number": 80,
         "year": 2019,
-        "category": "لپ تاپ",
+        "category": "laptop",
         "color": "مشکی",
         "weight": 1.63
     }
