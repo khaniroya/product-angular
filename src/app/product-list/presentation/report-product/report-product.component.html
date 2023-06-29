@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="header">
+    <h2>
+      گزارش ها
+    </h2>
+    <button class="btn btn-success">
+      دریافت گزارش خرید یا فروش محصولات
+    </button>
+  </div>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>شناسه کالا</th>
+        <th>نام کالا</th>
+        <th>تعداد خرید</th>
+        <th>تعداد فروش</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of reportList; let i=index">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.number}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

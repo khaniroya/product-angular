@@ -6,6 +6,7 @@ import { CreateNewProductComponent } from './presentation/create-new-product/cre
 import { ReceiptProductComponent } from './presentation/receipt-product/receipt-product.component';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from './application/product.service';
+import { ReportProductComponent } from './presentation/report-product/report-product.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,8 @@ import { ProductService } from './application/product.service';
     FormsModule
   ],
   providers: [ProductService],
-  declarations: [ProductListComponent, SaleProductComponent, CreateNewProductComponent, ReceiptProductComponent]
+  declarations: [
+    ReportProductComponent,
+    ProductListComponent, SaleProductComponent, CreateNewProductComponent, ReceiptProductComponent]
 })
 export class ProductListModule { }
