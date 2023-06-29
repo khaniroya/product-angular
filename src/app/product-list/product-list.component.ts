@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as data from './application/product-list.json';
 import * as category from './application/product-category.json';
-import { ProductCategory, ProductModel } from './application/product-model';
+import { ProductModel } from './application/product-model';
 
 @Component({
   selector: 'app-product-list',

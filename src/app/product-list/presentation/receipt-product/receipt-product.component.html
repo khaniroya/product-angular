@@ -12,7 +12,7 @@
       <tr>
         <th>شناسه کالا</th>
         <th>نام کالا</th>
-        <th>تعداد </th>
+        <th>موجودی انبار </th>
         <th> ویرایش</th>
         <th> حذف</th>
       </tr>
@@ -47,7 +47,7 @@
         <div class="group_form">
           <label>نام کالا</label>
           <select name="productName" class="form-control">
-            <option *ngFor="let product of productList" [value]="product.id">{{product.name}}</option>
+            <option *ngFor="let product of receiptList" [value]="product.id">{{product.name}}</option>
           </select>
         </div>
         <div class="group_form">

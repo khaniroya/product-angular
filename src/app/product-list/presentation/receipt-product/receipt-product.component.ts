@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as data from '../../application/product-list.json';
+import * as data from '../../application/receipt-product.json';
+import { ReceiptOrSaleModel } from '../../application/product-model';
 
 
 @Component({
@@ -13,10 +14,9 @@ export class ReceiptProductComponent implements OnInit {
     this.json_data = data as any
   }
   json_data: any
-  productList: any
-  receiptList: any
+  receiptList: ReceiptOrSaleModel[] = []
   ngOnInit() {
-    this.productList = this.json_data.default
+    this.receiptList = this.json_data.default
   }
 
   activeModal: boolean = false
