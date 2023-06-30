@@ -22,10 +22,12 @@
         <td>{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.number}}</td>
-        <td> <button class="btn btn-warning">
+        <td>
+          <button class="btn btn-warning" (click)="showModalForEdit(item)">
             ویرایش
-          </button></td>
-        <td> <button class="btn btn-delete">
+          </button>
+        </td>
+        <td> <button class="btn btn-delete" (click)="showPopupActive(item.id)">
             حذف
           </button></td>
       </tr>
@@ -34,40 +36,19 @@
 </div>
 
 <div class="modal-wrapper" *ngIf="activeModal">
-  <div class="content-modal">
-    <span class="close" (click)="closeModal()">
-      x
-    </span>
-    <h4>
-      اضافه کردن حواله جدید
-    </h4>
+  <app-create-new-receipt (onClose)="closeModal()" [editId]="editId" (addItem)="addItemToReceiptList($event)"
+    [receiptList]="receiptList" [productList]="productList"></app-create-new-receipt>
+</div>
 
-    <div class="form-new">
-      <form #reciptProduct>
-        <div class="group_form">
-          <label>نام کالا</label>
-          <select name="productName" class="form-control">
-            <option *ngFor="let product of receiptList" [value]="product.id">{{product.name}}</option>
-          </select>
-        </div>
-        <div class="group_form">
-          <label>تعداد کالا</label>
-          <input type="number" name="productNum" class="form-control" />
-        </div>
-        <div class="group_form_textArea">
-          <label>توضیحات</label>
-          <textarea id="w3review" name="reciptDes" rows="4" cols="150" class="form-control-text">
-            </textarea>
-        </div>
-      </form>
-      <div class="action-form">
-        <button class="btn btn-secoundry" (click)="closeModal()">
-          لغو
-        </button>
-        <button class="btn btn-success">
-          ثبت
-        </button>
-      </div>
-    </div>
+<div class="confirm-popup" *ngIf="popupActive">
+  <div class="content">
+    <span>!</span>
+    <p>آیا از حذف این کالا اطمینان دارید؟</p>
+    <button class="btn btn-delete" (click)="deleteItem()">
+      بله
+    </button>
+    <button class="btn btn-secoundry" (click)="closePopupActive()">
+      خیر
+    </button>
   </div>
 </div>

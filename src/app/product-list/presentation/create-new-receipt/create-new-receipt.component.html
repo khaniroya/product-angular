@@ -1,0 +1,31 @@
+<div class="content-modal">
+  <span class="close" (click)="close()">
+    x
+  </span>
+  <h4>
+    اضافه کردن رسید جدید
+  </h4>
+
+  <div class="form-new">
+    <form #reciptProduct="ngForm" (ngSubmit)="onSubmit()">
+      <div class="group_form">
+        <label>نام کالا</label>
+        <select name="name" class="form-control" [(ngModel)]="editData.name">
+          <option *ngFor="let product of productList" [value]="product.name">{{product.name}}</option>
+        </select>
+      </div>
+      <div class="group_form">
+        <label>تعداد کالا</label>
+        <input type="number" name="number" class="form-control" [(ngModel)]="editData.number" />
+      </div>
+    </form>
+    <div class="action-form">
+      <button class="btn btn-secoundry" (click)="close()">
+        لغو
+      </button>
+      <button class="btn btn-success" (click)="onSubmit()">
+        ثبت
+      </button>
+    </div>
+  </div>
+</div>

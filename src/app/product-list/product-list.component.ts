@@ -21,6 +21,7 @@ export class ProductListComponent implements OnInit {
   activeModal: boolean = false
   popupActive: boolean = false
   productId !: number | any
+  editId: any
   ngOnInit() {
     this.productList = this.json_data.default
     this.catgories = this.json_category.default
@@ -51,7 +52,7 @@ export class ProductListComponent implements OnInit {
     this.productId = null
   }
 
-  editId: any
+
   showModalForEdit(item: any) {
     this.showModal();
     this.editId = item.id

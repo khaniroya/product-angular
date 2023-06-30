@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import * as data from '../../application/receipt-product.json';
-import { ReceiptOrSaleModel } from '../../application/product-model';
+import * as receiptData from '../../application/receipt-product.json';
+import { ProductModel, ReceiptOrSaleModel } from '../../application/product-model';
+import * as data from '../../application/product-list.json';
 
 
 @Component({
@@ -11,19 +12,60 @@ import { ReceiptOrSaleModel } from '../../application/product-model';
 export class ReceiptProductComponent implements OnInit {
 
   constructor() {
+    this.json_receipt = receiptData as any
     this.json_data = data as any
+
   }
   json_data: any
+  json_receipt: any
+  productList: ProductModel[] = []
   receiptList: ReceiptOrSaleModel[] = []
+  editId: any
+  receiptId: any
+  activeModal: boolean = false
+  popupActive: boolean = false
+
   ngOnInit() {
-    this.receiptList = this.json_data.default
+    this.receiptList = this.json_receipt.default
+    this.productList = this.json_data.default
   }
 
-  activeModal: boolean = false
+
   showModal() {
+    this.editId = null;
     this.activeModal = true
   }
   closeModal() {
     this.activeModal = false
+  }
+
+  showModalForEdit(item: ReceiptOrSaleModel) {
+    this.showModal();
+    this.editId = item.id
+  }
+  showPopupActive(id: number) {
+    this.receiptId = id
+    this.popupActive = true
+  }
+
+  deleteItem() {
+    this.receiptList = this.receiptList.filter((c: any) => {
+      return c.id != this.receiptId
+    })
+    this.closePopupActive()
+  }
+
+  closePopupActive() {
+    this.popupActive = false
+    this.receiptId = null
+  }
+  addItemToReceiptList(newItem: any) {
+    this.receiptList.push(newItem)
+    this.productList = this.productList.filter((c: any) => {
+      return c.name == newItem.name
+    })
+    this.productList = this.productList.filter((c: any) => {
+      return c.number += newItem.number
+    })
   }
 }

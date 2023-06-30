@@ -7,15 +7,22 @@ import { ReceiptProductComponent } from './presentation/receipt-product/receipt-
 import { FormsModule } from '@angular/forms';
 import { ProductService } from './application/product.service';
 import { ReportProductComponent } from './presentation/report-product/report-product.component';
+import { CreateNewReceiptComponent } from './presentation/create-new-receipt/create-new-receipt.component';
+import { ProductReceiptService } from './application/product.receipt.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, ProductReceiptService],
   declarations: [
     ReportProductComponent,
-    ProductListComponent, SaleProductComponent, CreateNewProductComponent, ReceiptProductComponent]
+    CreateNewReceiptComponent,
+    ProductListComponent,
+    SaleProductComponent,
+    CreateNewProductComponent,
+    ReceiptProductComponent
+  ]
 })
 export class ProductListModule { }
