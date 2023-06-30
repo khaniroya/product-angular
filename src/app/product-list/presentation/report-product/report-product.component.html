@@ -3,25 +3,29 @@
     <h2>
       گزارش ها
     </h2>
-    <button class="btn btn-success">
+    <button class="btn btn-success" (click)="showReportTable()">
       دریافت گزارش خرید یا فروش محصولات
     </button>
   </div>
 
-  <table class="styled-table">
+  <table class="styled-table" *ngIf="showReport">
     <thead>
       <tr>
-        <th>شناسه کالا</th>
         <th>نام کالا</th>
-        <th>تعداد خرید</th>
-        <th>تعداد فروش</th>
+        <th>نوع</th>
+        <th>تعداد</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of reportList; let i=index">
-        <td>{{item.id}}</td>
         <td>{{item.name}}</td>
+        <td>{{item.type}}</td>
         <td>{{item.number}}</td>
+      </tr>
+      <tr class="total">
+        <td></td>
+        <td></td>
+        <td>میانگین کل : {{average}}</td>
       </tr>
     </tbody>
   </table>

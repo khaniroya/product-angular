@@ -33,7 +33,6 @@ export class CreateNewSaleComponent implements OnInit {
     } else {
       this.editData = this.nullItem
     }
-    console.log(this.productList)
   }
 
   close() {
