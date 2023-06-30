@@ -9,6 +9,7 @@ import { ProductService } from './application/product.service';
 import { ReportProductComponent } from './presentation/report-product/report-product.component';
 import { CreateNewReceiptComponent } from './presentation/create-new-receipt/create-new-receipt.component';
 import { ProductReceiptService } from './application/product.receipt.service';
+import { CreateNewSaleComponent } from './presentation/create-new-sale/create-new-sale.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { ProductReceiptService } from './application/product.receipt.service';
     ProductListComponent,
     SaleProductComponent,
     CreateNewProductComponent,
-    ReceiptProductComponent
+    ReceiptProductComponent,
+    CreateNewSaleComponent
   ]
 })
 export class ProductListModule { }
