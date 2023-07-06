@@ -10,9 +10,15 @@
     <form #reciptProduct="ngForm" (ngSubmit)="onSubmit()">
       <div class="group_form">
         <label>نام کالا</label>
-        <select name="name" class="form-control" [(ngModel)]="editData.name">
+        <!-- <select name="name" class="form-control" [(ngModel)]="editData.name">
           <option *ngFor="let product of productList" [value]="product.name">{{product.name}}</option>
-        </select>
+        </select> -->
+
+        <input list="products" id="name" name="name" class="form-control" [(ngModel)]="editData.name">
+        <datalist id="products">
+          <option *ngFor="let product of productList" [value]="product.name">{{product.name}}</option>
+        </datalist>
+
       </div>
       <div class="group_form">
         <label>تعداد کالا</label>

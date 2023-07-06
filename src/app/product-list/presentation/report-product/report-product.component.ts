@@ -63,12 +63,25 @@ export class ReportProductComponent implements OnInit {
 
   }
 
-  sortByDate() {
+  sortByDateDes() {
     this.reportList = this.json_sale.default.concat(this.json_receipt.default);
     this.reportList.map((c: any) => {
       return c.date = new Date(c.date)
     })
     this.reportList = this.reportList.sort((a: any, b: any) => b.date - a.date);
+    this.reportList.map((c: any) => {
+      let day = c.date.getDate();
+      let month = c.date.getMonth();
+      let year = c.date.getFullYear();
+      return c.date = year + "-" + month + "-" + day;
+    })
+  }
+  sortByDateAs() {
+    this.reportList = this.json_sale.default.concat(this.json_receipt.default);
+    this.reportList.map((c: any) => {
+      return c.date = new Date(c.date)
+    })
+    this.reportList = this.reportList.sort((a: any, b: any) => b.date - b.date);
     this.reportList.map((c: any) => {
       let day = c.date.getDate();
       let month = c.date.getMonth();

@@ -34,6 +34,8 @@ export class CreateNewReceiptComponent implements OnInit {
     } else {
       this.editData = this.nullItem
     }
+
+
   }
 
   close() {

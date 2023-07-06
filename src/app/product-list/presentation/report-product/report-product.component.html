@@ -10,8 +10,11 @@
       <div style="     display: inline-flex;
       column-gap: 7px;
       align-items: flex-end;">
-        <button class="btn btn-primary" (click)="sortByDate()" [ngClass]="{'disable': reportList.length == 0}">
-          مرتب سازی براساس تاریخ
+        <button class="btn btn-primary" (click)="sortByDateAs()" [ngClass]="{'disable': reportList.length == 0}">
+          مرتب سازی صعودی
+        </button>
+        <button class="btn btn-primary" (click)="sortByDateDes()" [ngClass]="{'disable': reportList.length == 0}">
+          مرتب سازی نزولی
         </button>
         <!-- <div>
           <label for="pet-select"> مرتب سازی براساس نوع:</label>
