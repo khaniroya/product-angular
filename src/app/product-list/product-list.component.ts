@@ -62,6 +62,10 @@ export class ProductListComponent implements OnInit {
     this.productList.push(newItem)
   }
 
+  editProductList(itemEdit: ProductModel) {
+    var foundIndex = this.productList.findIndex(x => x.id == itemEdit.id);
+    this.productList[foundIndex] = itemEdit;
+  }
   replaceCategory(item: any) {
     var repItem = this.catgories.filter((c: any) => {
       return c.key == item

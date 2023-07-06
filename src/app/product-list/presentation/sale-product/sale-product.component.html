@@ -37,7 +37,7 @@
 
 <div class="modal-wrapper" *ngIf="activeModal">
   <app-create-new-sale (onClose)="closeModal()" [editId]="editId" (addItem)="addItemToSaleList($event)"
-    [saleList]="saleList" [productList]="productList"></app-create-new-sale>
+    [saleList]="saleList" [productList]="productList" (editSaleList)="editSaleList($event)"></app-create-new-sale>
 </div>
 
 <div class="confirm-popup" *ngIf="popupActive">
@@ -49,6 +49,16 @@
     </button>
     <button class="btn btn-secoundry" (click)="closePopupActive()">
       خیر
+    </button>
+  </div>
+</div>
+<div class="confirm-popup" *ngIf="popupActiveMojodi">
+  <div class="content">
+    <span>!</span>
+    <p class="red">این تعداد در انبار موجود نیست</p>
+    <p>موجودی فعلی این محصول:{{mojodi.number}}</p>
+    <button class="btn btn-secoundry" (click)="closePopupActiveMojodi()">
+      بستن
     </button>
   </div>
 </div>

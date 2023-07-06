@@ -10,7 +10,7 @@ export interface ProductModel {
 export interface ReceiptOrSaleModel {
     id: number,
     name: string,
-    number?: number,
+    number: number,
     type?: string
 }
 export interface ProductCategory {

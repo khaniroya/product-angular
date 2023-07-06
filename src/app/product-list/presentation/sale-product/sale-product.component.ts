@@ -24,6 +24,7 @@ export class SaleProductComponent implements OnInit {
   receiptId: any
   activeModal: boolean = false
   popupActive: boolean = false
+  popupActiveMojodi: boolean = false
 
   ngOnInit() {
     this.saleList = this.json_receipt.default
@@ -58,6 +59,22 @@ export class SaleProductComponent implements OnInit {
   closePopupActive() {
     this.popupActive = false
     this.receiptId = null
+  }
+
+  mojodi: any
+  editSaleList(itemEdit: ReceiptOrSaleModel) {
+    this.mojodi = this.productList.find((c: any) => {
+      return c.id == itemEdit.id
+    })
+    if (this.mojodi?.number > itemEdit?.number) {
+      var foundIndex = this.saleList.findIndex(x => x.id == itemEdit.id);
+      this.saleList[foundIndex] = itemEdit;
+    } else {
+      this.popupActiveMojodi = true
+    }
+  }
+  closePopupActiveMojodi() {
+    this.popupActiveMojodi = false
   }
   addItemToSaleList(newItem: any) {
     this.saleList.push(newItem)

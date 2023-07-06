@@ -48,7 +48,8 @@
 
 <div class="modal-wrapper" *ngIf="activeModal">
   <app-create-new-product (onClose)="closeModal()" [editId]="editId" (addItem)="addItemToProductList($event)"
-    [catgories]="catgories" [productList]="productList"></app-create-new-product>
+    [catgories]="catgories" [productList]="productList"
+    (editProductList)="editProductList($event)"></app-create-new-product>
 </div>
 
 <div class="confirm-popup" *ngIf="popupActive">

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ProductCategory, ProductModel } from '../../application/product-model';
 import { randomIdCreate } from 'src/utils/randomId';
 import { ProductService } from '../../application/product.service';
+import { cloneDeep } from 'lodash';
 
 @Component({
   selector: 'app-create-new-product',
@@ -16,6 +17,7 @@ export class CreateNewProductComponent implements OnInit {
   @Input() productList: ProductModel[]
   @Output() onClose = new EventEmitter<void>();
   @Output() addItem = new EventEmitter<ProductModel>();
+  @Output() editProductList = new EventEmitter<ProductModel>();
   editData: any
   nullItem = {
     id: 0,
@@ -35,7 +37,7 @@ export class CreateNewProductComponent implements OnInit {
       this.editData = this.productList.filter((c: any) => {
         return c.id == this.editId
       })
-      this.editData = this.editData[0]
+      this.editData = cloneDeep(this.editData[0])
     } else {
       this.editData = this.nullItem
     }
@@ -51,7 +53,17 @@ export class CreateNewProductComponent implements OnInit {
     var dataForm = this.addProduct.value;
     if (this.addProduct.valid && dataForm != null) {
       if (this.editId) {
-        this.productService.setValueForm(this.addProduct, dataForm)
+        // this.productService.setValueForm(this.addProduct, dataForm)
+        let item: ProductModel = {
+          id: this.editId,
+          name: dataForm.name,
+          year: dataForm.year,
+          number: 0,
+          category: dataForm.category,
+          color: dataForm.color,
+          weight: dataForm.weight
+        }
+        this.editProductList.emit(item)
       } else {
         let item: ProductModel = {
           id: randomIdCreate(0, 1000),
@@ -65,11 +77,11 @@ export class CreateNewProductComponent implements OnInit {
         this.addItem.emit(item)
       }
       this.onClose.emit()
+      console.log(this.productList)
     } else {
       alert('فرم خطا دارد ثبت نشد')
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
-
   }
 }

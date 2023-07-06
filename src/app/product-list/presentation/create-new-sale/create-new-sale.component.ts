@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ProductCategory, ProductModel, ReceiptOrSaleModel } from '../../application/product-model';
 import { randomIdCreate } from 'src/utils/randomId';
 import { ProductReceiptService } from '../../application/product.receipt.service';
+import { cloneDeep } from 'lodash';
 
 @Component({
   selector: 'app-create-new-sale',
@@ -17,6 +18,7 @@ export class CreateNewSaleComponent implements OnInit {
   @Input() productList: ProductModel[]
   @Output() onClose = new EventEmitter<void>();
   @Output() addItem = new EventEmitter<ReceiptOrSaleModel>();
+  @Output() editSaleList = new EventEmitter<ReceiptOrSaleModel>();
   editData: any
   nullItem = {
     id: 0,
@@ -29,7 +31,7 @@ export class CreateNewSaleComponent implements OnInit {
       this.editData = this.saleList.filter((c: any) => {
         return c.id == this.editId
       })
-      this.editData = this.editData[0]
+      this.editData = cloneDeep(this.editData[0])
     } else {
       this.editData = this.nullItem
     }
@@ -45,7 +47,14 @@ export class CreateNewSaleComponent implements OnInit {
     var dataForm = this.saleProduct.value;
     if (this.saleProduct.valid && dataForm != null) {
       if (this.editId) {
-        this.receiptService.setValueForm(this.saleProduct, dataForm)
+        // this.receiptService.setValueForm(this.saleProduct, dataForm)
+        // this.productService.setValueForm(this.addProduct, dataForm)
+        let item: ReceiptOrSaleModel = {
+          id: this.editId,
+          name: dataForm.name,
+          number: dataForm.number
+        }
+        this.editSaleList.emit(item)
       } else {
         let item: ReceiptOrSaleModel = {
           id: randomIdCreate(0, 1000),
