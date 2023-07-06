@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as receiptData from '../../application/receipt-product.json';
-import { ProductModel, ReceiptOrSaleModel } from '../../application/product-model';
+import { ProductModel, ReceiptModel } from '../../application/product-model';
 import * as data from '../../application/product-list.json';
 
 
@@ -19,7 +19,7 @@ export class ReceiptProductComponent implements OnInit {
   json_data: any
   json_receipt: any
   productList: ProductModel[] = []
-  receiptList: ReceiptOrSaleModel[] = []
+  receiptList: ReceiptModel[] = []
   editId: any
   receiptId: any
   activeModal: boolean = false
@@ -39,7 +39,7 @@ export class ReceiptProductComponent implements OnInit {
     this.activeModal = false
   }
 
-  showModalForEdit(item: ReceiptOrSaleModel) {
+  showModalForEdit(item: ReceiptModel) {
     this.showModal();
     this.editId = item.id
   }

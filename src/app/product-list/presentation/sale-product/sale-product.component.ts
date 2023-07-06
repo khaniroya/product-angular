@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as saleData from '../../application/sale-product.json';
 import * as data from '../../application/product-list.json';
-import { ProductModel, ReceiptOrSaleModel } from '../../application/product-model';
+import { ProductModel, SaleModel } from '../../application/product-model';
 
 @Component({
   selector: 'app-sale-product',
@@ -19,7 +19,7 @@ export class SaleProductComponent implements OnInit {
   json_data: any
   json_receipt: any
   productList: ProductModel[] = []
-  saleList: ReceiptOrSaleModel[] = []
+  saleList: SaleModel[] = []
   editId: any
   receiptId: any
   activeModal: boolean = false
@@ -40,7 +40,7 @@ export class SaleProductComponent implements OnInit {
     this.activeModal = false
   }
 
-  showModalForEdit(item: ReceiptOrSaleModel) {
+  showModalForEdit(item: SaleModel) {
     this.showModal();
     this.editId = item.id
   }
@@ -62,10 +62,9 @@ export class SaleProductComponent implements OnInit {
   }
 
   mojodi: any
-  editSaleList(itemEdit: ReceiptOrSaleModel) {
-    this.mojodi = this.productList.find((c: any) => {
-      return c.id == itemEdit.id
-    })
+  editSaleList(itemEdit: SaleModel) {
+    this.mojodi = null
+    this.getMogodi(itemEdit)
     if (this.mojodi?.number > itemEdit?.number) {
       var foundIndex = this.saleList.findIndex(x => x.id == itemEdit.id);
       this.saleList[foundIndex] = itemEdit;
@@ -77,12 +76,24 @@ export class SaleProductComponent implements OnInit {
     this.popupActiveMojodi = false
   }
   addItemToSaleList(newItem: any) {
-    this.saleList.push(newItem)
-    this.productList = this.productList.filter((c: any) => {
-      return c.name == newItem.name
+    this.mojodi = null
+    this.getMogodi(newItem)
+    if (this.mojodi?.number > newItem?.number) {
+      this.saleList.push(newItem)
+    } else {
+      this.popupActiveMojodi = true
+    }
+    // this.productList = this.productList.filter((c: any) => {
+    //   return c.name == newItem.name
+    // })
+    // this.productList = this.productList.filter((c: any) => {
+    //   return c.number -= newItem.number
+    // })
+  }
+  getMogodi(item: any) {
+    this.mojodi = this.productList.find((c: any) => {
+      return c.name == item.name
     })
-    this.productList = this.productList.filter((c: any) => {
-      return c.number -= newItem.number
-    })
+    console.log(this.mojodi)
   }
 }

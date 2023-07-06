@@ -7,11 +7,19 @@ export interface ProductModel {
     color: string,
     weight: number
 }
-export interface ReceiptOrSaleModel {
+export interface SaleModel {
     id: number,
     name: string,
     number: number,
-    type?: string
+    type?: string,
+    saleDate?: string
+}
+export interface ReceiptModel {
+    id: number,
+    name: string,
+    number: number,
+    type?: string,
+    receiptDate?: string
 }
 export interface ProductCategory {
     value: string,

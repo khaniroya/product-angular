@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ProductCategory, ProductModel, ReceiptOrSaleModel } from '../../application/product-model';
+import { ProductCategory, ProductModel, SaleModel } from '../../application/product-model';
 import { randomIdCreate } from 'src/utils/randomId';
 import { ProductReceiptService } from '../../application/product.receipt.service';
 import { cloneDeep } from 'lodash';
@@ -14,11 +14,11 @@ export class CreateNewSaleComponent implements OnInit {
   @ViewChild('saleProduct') saleProduct: NgForm;
   @Input() editId: any
   @Input() catgories: ProductCategory[]
-  @Input() saleList: ReceiptOrSaleModel[]
+  @Input() saleList: SaleModel[]
   @Input() productList: ProductModel[]
   @Output() onClose = new EventEmitter<void>();
-  @Output() addItem = new EventEmitter<ReceiptOrSaleModel>();
-  @Output() editSaleList = new EventEmitter<ReceiptOrSaleModel>();
+  @Output() addItem = new EventEmitter<SaleModel>();
+  @Output() editSaleList = new EventEmitter<SaleModel>();
   editData: any
   nullItem = {
     id: 0,
@@ -39,8 +39,7 @@ export class CreateNewSaleComponent implements OnInit {
 
   close() {
     this.onClose.emit();
-    this.editId = null
-
+    this.editId = null;
   }
 
   onSubmit() {
@@ -48,18 +47,19 @@ export class CreateNewSaleComponent implements OnInit {
     if (this.saleProduct.valid && dataForm != null) {
       if (this.editId) {
         // this.receiptService.setValueForm(this.saleProduct, dataForm)
-        // this.productService.setValueForm(this.addProduct, dataForm)
-        let item: ReceiptOrSaleModel = {
+        let item: SaleModel = {
           id: this.editId,
           name: dataForm.name,
-          number: dataForm.number
+          number: dataForm.number,
+          saleDate: dataForm.saleDate
         }
         this.editSaleList.emit(item)
       } else {
-        let item: ReceiptOrSaleModel = {
+        let item: SaleModel = {
           id: randomIdCreate(0, 1000),
           name: dataForm.name,
-          number: dataForm.number
+          number: dataForm.number,
+          saleDate: dataForm.saleDate
         }
         this.addItem.emit(item)
       }

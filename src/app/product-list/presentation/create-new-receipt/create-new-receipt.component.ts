@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ProductCategory, ProductModel, ReceiptOrSaleModel } from '../../application/product-model';
+import { ProductCategory, ProductModel, ReceiptModel } from '../../application/product-model';
 import { randomIdCreate } from 'src/utils/randomId';
 import { ProductReceiptService } from '../../application/product.receipt.service';
 
@@ -13,10 +13,10 @@ export class CreateNewReceiptComponent implements OnInit {
   @ViewChild('reciptProduct') reciptProduct: NgForm;
   @Input() editId: any
   @Input() catgories: ProductCategory[]
-  @Input() receiptList: ReceiptOrSaleModel[]
+  @Input() receiptList: ReceiptModel[]
   @Input() productList: ProductModel[]
   @Output() onClose = new EventEmitter<void>();
-  @Output() addItem = new EventEmitter<ReceiptOrSaleModel>();
+  @Output() addItem = new EventEmitter<ReceiptModel>();
   editData: any
   nullItem = {
     id: 0,
@@ -47,7 +47,7 @@ export class CreateNewReceiptComponent implements OnInit {
       if (this.editId) {
         this.receiptService.setValueForm(this.reciptProduct, dataForm)
       } else {
-        let item: ReceiptOrSaleModel = {
+        let item: ReceiptModel = {
           id: randomIdCreate(0, 1000),
           name: dataForm.name,
           number: dataForm.number

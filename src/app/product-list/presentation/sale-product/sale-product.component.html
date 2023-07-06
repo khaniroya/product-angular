@@ -13,6 +13,7 @@
         <th>شناسه کالا</th>
         <th>نام کالا</th>
         <th> تعداد حواله </th>
+        <th> تاریخ حواله </th>
         <th> ویرایش</th>
         <th> حذف</th>
       </tr>
@@ -22,6 +23,7 @@
         <td>{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.number}}</td>
+        <td>{{item.saleDate}}</td>
         <td>
           <button class="btn btn-warning" (click)="showModalForEdit(item)">
             ویرایش
@@ -56,7 +58,8 @@
   <div class="content">
     <span>!</span>
     <p class="red">این تعداد در انبار موجود نیست</p>
-    <p>موجودی فعلی این محصول:{{mojodi.number}}</p>
+    <p style="font-size: 14px;
+    color: gray;">موجودی فعلی این محصول: <strong style="color: green;">{{mojodi.number}} عدد</strong> </p>
     <button class="btn btn-secoundry" (click)="closePopupActiveMojodi()">
       بستن
     </button>
