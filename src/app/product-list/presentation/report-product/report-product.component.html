@@ -14,6 +14,7 @@
         <th>نام کالا</th>
         <th>نوع</th>
         <th>تعداد</th>
+        <th>تاریخ ثبت</th>
       </tr>
     </thead>
     <tbody>
@@ -21,11 +22,14 @@
         <td>{{item.name}}</td>
         <td>{{item.type}}</td>
         <td>{{item.number}}</td>
+        <td *ngIf="item.receiptDate">{{item.receiptDate}}</td>
+        <td *ngIf="item.saleDate">{{item.saleDate}}</td>
       </tr>
       <tr class="total">
         <td></td>
-        <td></td>
-        <td>میانگین کل : {{average}}</td>
+        <td *ngIf="numberSale"> کل فروش: {{numberSale}}</td>
+        <td *ngIf="numberReceipt"> کل خرید : {{numberReceipt}}</td>
+        <td>میانگین کل خرید وفروش: {{average}}</td>
       </tr>
     </tbody>
   </table>

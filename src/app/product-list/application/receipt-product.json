@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "ساعت هوشمند iwatch8",
-        "number": 5,
+        "number": 145,
         "type": "خرید",
         "receiptDate": "2023-07-06"
     },
@@ -18,41 +18,41 @@
         "name": "آیفون 13 پرومکس",
         "number": 15,
         "type": "خرید",
-        "receiptDate": "2023-07-06"
+        "receiptDate": "2022-06-06"
     },
     {
         "id": 4,
         "name": "آیفون 13 پرومکس",
-        "number": 45,
+        "number": 555,
         "type": "خرید",
         "receiptDate": "2023-07-06"
     },
     {
         "id": 5,
         "name": "لپ تاپ Asus مدل 2019",
-        "number": 25,
+        "number": 22,
         "type": "خرید",
         "receiptDate": "2023-07-06"
     },
     {
         "id": 6,
         "name": "شارژر گوشی آیفون 13",
-        "number": 120,
+        "number": 2200,
         "type": "خرید",
-        "receiptDate": "2023-07-06"
+        "receiptDate": "2022-12-06"
     },
     {
         "id": 7,
         "name": "شارژر گوشی آیفون 13",
-        "number": 180,
+        "number": 140,
         "type": "خرید",
-        "receiptDate": "2023-07-06"
+        "receiptDate": "2023-06-01"
     },
     {
         "id": 8,
         "name": "لپ تاپ 15.6 اینچی ایسوس مدل TUF",
         "number": 80,
         "type": "خرید",
-        "receiptDate": "2023-07-06"
+        "receiptDate": "2023-06-06"
     }
 ]

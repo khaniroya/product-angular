@@ -17,9 +17,6 @@ export class ReportProductComponent implements OnInit {
   reportList: any
   showReport: boolean = false
   ngOnInit() {
-    const arr = [1, 2, 3, 4, 5];
-    const average = arr.reduce((a, b) => a + b, 0) / arr.length;
-    console.log(average);
   }
 
   showReportTable() {
@@ -32,11 +29,35 @@ export class ReportProductComponent implements OnInit {
   }
 
   numberList: number[] = []
+  numberSale: number[] = []
+  numberReceipt: number[] = []
   average!: number
+  averageSale!: number
+  averageReceipt!: number
   calculateAverage(list: any[]) {
     list = list.map((c: any) => {
       return this.numberList.push(c.number)
     })
     this.average = this.numberList.reduce((a, b) => a + b, 0) / this.numberList.length;
+    this.average = parseInt(this.average.toString())
+
+
+    //Receipt 
+    const ReceiptNum = this.json_receipt.default.map((c: any) => {
+      return c.number
+    })
+    this.numberReceipt = ReceiptNum.reduce((a: any, b: any) => {
+      return a + b;
+    });
+
+
+    //Sale 
+    const saleNum = this.json_sale.default.map((c: any) => {
+      return c.number
+    })
+    this.numberSale = saleNum.reduce((a: any, b: any) => {
+      return a + b;
+    });
+
   }
 }
