@@ -51,7 +51,7 @@ export class CreateNewReceiptComponent implements OnInit {
           id: this.editId,
           name: dataForm.name,
           number: dataForm.number,
-          receiptDate: dataForm.receiptDate
+          date: dataForm.date
         }
         this.editReceiptList.emit(item)
 
@@ -60,7 +60,7 @@ export class CreateNewReceiptComponent implements OnInit {
           id: randomIdCreate(0, 1000),
           name: dataForm.name,
           number: dataForm.number,
-          receiptDate: dataForm.receiptDate
+          date: dataForm.date
         }
         this.addItem.emit(item)
       }

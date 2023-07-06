@@ -3,14 +3,33 @@
     <h2>
       گزارش ها
     </h2>
-    <button class="btn btn-success" (click)="showReportTable()">
-      دریافت گزارش خرید یا فروش محصولات
-    </button>
+    <div class="action-list">
+      <button class="btn btn-success" (click)="showReportTable()">
+        دریافت گزارش خرید یا فروش محصولات
+      </button>
+      <div style="     display: inline-flex;
+      column-gap: 7px;
+      align-items: flex-end;">
+        <button class="btn btn-primary" (click)="sortByDate()" [ngClass]="{'disable': reportList.length == 0}">
+          مرتب سازی براساس تاریخ
+        </button>
+        <!-- <div>
+          <label for="pet-select"> مرتب سازی براساس نوع:</label>
+          <select name="pets" id="pet-select" class="form-control">
+            <option value="">--انتخاب کنید--</option>
+            <option value="receipt" (click)="setFilter('receipt')">خرید</option>
+            <option value="sale" (click)="setFilter('sale')">فروش</option>
+          </select>
+        </div> -->
+
+      </div>
+    </div>
   </div>
 
   <table class="styled-table" *ngIf="showReport">
     <thead>
       <tr>
+        <th>ردیف</th>
         <th>نام کالا</th>
         <th>نوع</th>
         <th>تعداد</th>
@@ -19,13 +38,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of reportList; let i=index">
+        <td>{{i+1}}</td>
         <td>{{item.name}}</td>
         <td>{{item.type}}</td>
         <td>{{item.number}}</td>
-        <td *ngIf="item.receiptDate">{{item.receiptDate}}</td>
-        <td *ngIf="item.saleDate">{{item.saleDate}}</td>
+        <td *ngIf="item.date">{{item.date}}</td>
       </tr>
       <tr class="total">
+        <td></td>
         <td></td>
         <td *ngIf="numberSale"> کل فروش: {{numberSale}}</td>
         <td *ngIf="numberReceipt"> کل خرید : {{numberReceipt}}</td>

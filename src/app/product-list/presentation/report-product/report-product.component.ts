@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as sale from '../../application/sale-product.json'
 import * as receipt from '../../application/receipt-product.json'
+import moment from 'moment';
 @Component({
   selector: 'app-report-product',
   templateUrl: './report-product.component.html',
@@ -14,9 +15,10 @@ export class ReportProductComponent implements OnInit {
   }
   json_receipt: any
   json_sale: any
-  reportList: any
+  reportList: any[] = []
   showReport: boolean = false
   ngOnInit() {
+
   }
 
   showReportTable() {
@@ -60,4 +62,19 @@ export class ReportProductComponent implements OnInit {
     });
 
   }
+
+  sortByDate() {
+    this.reportList = this.json_sale.default.concat(this.json_receipt.default);
+    this.reportList.map((c: any) => {
+      return c.date = new Date(c.date)
+    })
+    this.reportList = this.reportList.sort((a: any, b: any) => b.date - a.date);
+    this.reportList.map((c: any) => {
+      let day = c.date.getDate();
+      let month = c.date.getMonth();
+      let year = c.date.getFullYear();
+      return c.date = year + "-" + month + "-" + day;
+    })
+  }
+
 }

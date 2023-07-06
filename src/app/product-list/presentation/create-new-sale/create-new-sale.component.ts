@@ -51,7 +51,7 @@ export class CreateNewSaleComponent implements OnInit {
           id: this.editId,
           name: dataForm.name,
           number: dataForm.number,
-          saleDate: dataForm.saleDate
+          date: dataForm.date
         }
         this.editSaleList.emit(item)
       } else {
@@ -59,7 +59,7 @@ export class CreateNewSaleComponent implements OnInit {
           id: randomIdCreate(0, 1000),
           name: dataForm.name,
           number: dataForm.number,
-          saleDate: dataForm.saleDate
+          date: dataForm.date
         }
         this.addItem.emit(item)
       }

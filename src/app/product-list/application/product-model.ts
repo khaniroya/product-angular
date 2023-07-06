@@ -12,14 +12,14 @@ export interface SaleModel {
     name: string,
     number: number,
     type?: string,
-    saleDate?: string
+    date?: string
 }
 export interface ReceiptModel {
     id: number,
     name: string,
     number: number,
     type?: string,
-    receiptDate?: string
+    date?: string
 }
 export interface ProductCategory {
     value: string,
