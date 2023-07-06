@@ -13,6 +13,7 @@
         <th>شناسه کالا</th>
         <th>نام کالا</th>
         <th> تعداد خرید </th>
+        <th> تاریخ حواله </th>
         <th> ویرایش</th>
         <th> حذف</th>
       </tr>
@@ -22,6 +23,7 @@
         <td>{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.number}}</td>
+        <td>{{item.receiptDate}}</td>
         <td>
           <button class="btn btn-warning" (click)="showModalForEdit(item)">
             ویرایش
@@ -37,7 +39,8 @@
 
 <div class="modal-wrapper" *ngIf="activeModal">
   <app-create-new-receipt (onClose)="closeModal()" [editId]="editId" (addItem)="addItemToReceiptList($event)"
-    [receiptList]="receiptList" [productList]="productList"></app-create-new-receipt>
+    [receiptList]="receiptList" [productList]="productList"
+    (editReceiptList)="editReceiptList($event)"></app-create-new-receipt>
 </div>
 
 <div class="confirm-popup" *ngIf="popupActive">

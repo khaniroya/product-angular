@@ -59,13 +59,18 @@ export class ReceiptProductComponent implements OnInit {
     this.popupActive = false
     this.receiptId = null
   }
+
+  editReceiptList(itemEdit: ReceiptModel) {
+    var foundIndex = this.receiptList.findIndex(x => x.id == itemEdit.id);
+    this.receiptList[foundIndex] = itemEdit;
+  }
   addItemToReceiptList(newItem: any) {
     this.receiptList.push(newItem)
-    this.productList = this.productList.filter((c: any) => {
-      return c.name == newItem.name
-    })
-    this.productList = this.productList.filter((c: any) => {
-      return c.number += newItem.number
-    })
+    // this.productList = this.productList.filter((c: any) => {
+    //   return c.name == newItem.name
+    // })
+    // this.productList = this.productList.filter((c: any) => {
+    //   return c.number += newItem.number
+    // })
   }
 }

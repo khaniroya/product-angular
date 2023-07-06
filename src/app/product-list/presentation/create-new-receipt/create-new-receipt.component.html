@@ -18,6 +18,10 @@
         <label>تعداد کالا</label>
         <input type="number" name="number" class="form-control" [(ngModel)]="editData.number" />
       </div>
+      <div class="group_form">
+        <label> تاریخ ثبت حواله</label>
+        <input type="date" id="receiptDate" class="form-control" name="receiptDate" [(ngModel)]="editData.receiptDate">
+      </div>
     </form>
     <div class="action-form">
       <button class="btn btn-secoundry" (click)="close()">

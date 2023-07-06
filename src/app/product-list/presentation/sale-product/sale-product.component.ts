@@ -94,6 +94,5 @@ export class SaleProductComponent implements OnInit {
     this.mojodi = this.productList.find((c: any) => {
       return c.name == item.name
     })
-    console.log(this.mojodi)
   }
 }

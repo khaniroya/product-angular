@@ -17,6 +17,7 @@ export class CreateNewReceiptComponent implements OnInit {
   @Input() productList: ProductModel[]
   @Output() onClose = new EventEmitter<void>();
   @Output() addItem = new EventEmitter<ReceiptModel>();
+  @Output() editReceiptList = new EventEmitter<ReceiptModel>();
   editData: any
   nullItem = {
     id: 0,
@@ -45,12 +46,21 @@ export class CreateNewReceiptComponent implements OnInit {
     var dataForm = this.reciptProduct.value;
     if (this.reciptProduct.valid && dataForm != null) {
       if (this.editId) {
-        this.receiptService.setValueForm(this.reciptProduct, dataForm)
+        // this.receiptService.setValueForm(this.reciptProduct, dataForm)
+        let item: ReceiptModel = {
+          id: this.editId,
+          name: dataForm.name,
+          number: dataForm.number,
+          receiptDate: dataForm.receiptDate
+        }
+        this.editReceiptList.emit(item)
+
       } else {
         let item: ReceiptModel = {
           id: randomIdCreate(0, 1000),
           name: dataForm.name,
-          number: dataForm.number
+          number: dataForm.number,
+          receiptDate: dataForm.receiptDate
         }
         this.addItem.emit(item)
       }
