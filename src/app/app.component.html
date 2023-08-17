@@ -1,18 +1,39 @@
 <header>
-    <ul class="nav_new">
-        <li [routerLink]="['/product-list']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-            لیست محصولات
-        </li>
-        <li [routerLink]="['/product-receipt']" routerLinkActive="active">
-            ثبت رسید
-        </li>
-        <li [routerLink]="['/product-sale']" routerLinkActive="active">
-            ثبت حواله
-        </li>
-        <li [routerLink]="['/report']" routerLinkActive="active">
-            گزارش خرید و فروش
-        </li>
+  <div class="container_header">
+    <ul class="nav_header">
+      <li
+        [routerLink]="['/product-list']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        لیست محصولات
+      </li>
+      <li [routerLink]="['/product-receipt']" routerLinkActive="active">
+        ثبت رسید
+      </li>
+      <li [routerLink]="['/product-sale']" routerLinkActive="active">
+        ثبت حواله
+      </li>
+      <li [routerLink]="['/report']" routerLinkActive="active">
+        گزارش خرید و فروش
+      </li>
     </ul>
+    <div class="dropـdown">
+      <span class="title_dp" (click)="clickToShowDropDown()">
+        حساب کاربری
+      </span>
+      <div class="dropdown_menu" *ngIf="show_dp">
+        <span class="user">
+            نام کاربری: رویا خانی
+        </span>
+          <ul >
+            <li>تنظیمات</li>
+            <li>تغییر رمز</li>
+            <li>خروج</li>
+          </ul>
+      </div>
+    </div>
+  </div>
 </header>
 
 <router-outlet></router-outlet>

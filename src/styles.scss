@@ -1,3 +1,5 @@
+@import './variable';
+
 @font-face {
     font-family: "iransans";
     src: url("./assets//fonts/IRANSans_Light.ttf");
@@ -133,6 +135,92 @@ header {
     background-color: #ffffff;
     height: 50px;
     box-shadow: 3px 2px 2px #0000002b;
+
+    .container_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+
+        ul.nav_header {
+            padding: 0;
+            margin: 12px;
+
+            li {
+                list-style: none;
+                display: inline-block;
+                margin: 0 10px;
+                font-size: 15px;
+                padding: 3px 20px;
+                cursor: pointer;
+                transition: all 0.5s ease;
+            }
+
+            li.active {
+                color: $primary-color;
+                background-color: $white-color;
+                border-bottom: 2px solid $primary-color;
+            }
+
+            li:hover {
+                color: $primary-color;
+                background-color: $white-color;
+            }
+        }
+
+        .dropـdown {
+            position: relative;
+
+            .title_dp {
+                cursor: pointer;
+            }
+
+            .dropdown_menu {
+                position: absolute;
+                width: 230px;
+                background-color: $white-color;
+                left: 0;
+                z-index: 99;
+                top: 35px;
+                line-height: 2;
+                -webkit-box-shadow: -1px 4px 14px -4px rgba(0, 0, 0, 0.71);
+                -moz-box-shadow: -1px 4px 14px -4px rgba(0, 0, 0, 0.71);
+                box-shadow: -1px 4px 14px -4px rgba(0, 0, 0, 0.71);
+                border-radius: 15px;
+
+                span {
+                    margin: 13px;
+                    font-size: 14px;
+                }
+
+                ul {
+                    padding: 0;
+                    margin: 12px 0 0 0;
+
+                    li {
+                        transition: all 0.4s ease;
+                        list-style: none;
+                        padding: 5px 10px;
+                        font-size: 13px;
+                        cursor: pointer;
+                    }
+
+                    li:not(:last-child) {
+                        border-bottom: 1px solid $color-border;
+                    }
+
+                    li:last-child:hover {
+                        border-radius: 0 0 15px 15px;
+                    }
+
+                    li:hover {
+                        background-color: $primary-color;
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
 }
 
 //Modal
